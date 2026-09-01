@@ -17,4 +17,35 @@ Requires **Obsidian 1.13.7** or later — Soothe targets the current release onl
 3. Search for **Soothe**.
 4. Click **Use** to activate.
 
-Or install manually: clone this repo into your vault's `.obsidian/themes/soothe` folder.
+Or install manually: clone this repo into your vault's `.obsidian/themes/Soothe` folder.
+
+## Development
+
+To deploy the theme directly into an Obsidian vault, pass the vault path to the
+deploy command:
+
+```bash
+npm run deploy -- "/path/to/vault"
+```
+
+The command copies `theme.css` and `manifest.json` to
+`.obsidian/themes/Soothe` — themes ship as plain CSS, so there is nothing to
+build. After deployment, pick **Soothe** in **Settings** > **Appearance** >
+**Theme**. Reload Obsidian (Ctrl/Cmd+R) after changing `theme.css`; restart it
+after changing `manifest.json`.
+
+## Release
+
+Use npm's version command to update `package.json`, `manifest.json`, and
+`versions.json`, then push the generated commit and tag (tags intentionally have
+no `v` prefix):
+
+```bash
+npm version patch
+git push origin master --follow-tags
+```
+
+Pushing the tag starts the release workflow, which verifies that the tag matches
+`manifest.json`, attests `theme.css` and `manifest.json`, and creates a **draft**
+GitHub release with both files attached. Review the draft and publish it to
+finish the release.
