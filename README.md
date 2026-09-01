@@ -19,6 +19,13 @@ Requires **Obsidian 1.13.7** or later — Soothe targets the current release onl
 
 Or install manually: clone this repo into your vault's `.obsidian/themes/Soothe` folder.
 
+## Sample
+
+`sample/Markdown-Sample.md` covers every element the theme touches — headings,
+emphasis, lists, tables, callouts, embeds, math, Mermaid, and long-form
+typography. Copy it into a vault and open it with Soothe to check a change
+against every element at once.
+
 ## Development
 
 To deploy the theme directly into an Obsidian vault, pass the vault path to the
