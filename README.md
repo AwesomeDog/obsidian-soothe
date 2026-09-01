@@ -26,6 +26,15 @@ emphasis, lists, tables, callouts, embeds, math, Mermaid, and long-form
 typography. Copy it into a vault and open it with Soothe to check a change
 against every element at once.
 
+## Customisation
+
+Variables Soothe declares under `.theme-dark` / `.theme-light` need a class
+selector to override — `body { … }` is not specific enough for those. Variables
+declared under `body` can be overridden either way.
+
+For everything else Obsidian exposes, see the
+[CSS variables reference](https://docs.obsidian.md/Reference/CSS+variables/CSS+variables).
+
 ## Development
 
 To deploy the theme directly into an Obsidian vault, pass the vault path to the

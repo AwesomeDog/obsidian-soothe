@@ -1,54 +1,70 @@
+/* Soothe — tinge Obsidian with soothing colors. Verified against Obsidian 1.13.7; no forced declarations, since theme.css loads after app.css. */
 
 .theme-dark {
-	/*User-defined Variables*/
+	/* Feeds the --link-* variables below */
 	--my-link-color: #59A2C5;
 	--my-link-color-hover: #B3A14B;
 
-	/*Built-in Variables*/
+	/* Backgrounds */
 	--background-primary: #2F3136;
 	--background-primary-alt: #36393F;
 	--background-secondary: #202225;
 	--background-secondary-alt: #0C1018D1;
 	--background-modifier-border: #92A1A17A;
 
+	/* Text */
 	--text-normal: #BBC0C5;
-	--text-faint: #A09B80;
+	--text-faint: #A7A289;
 	--text-accent: #FF9640BA;
 	--text-accent-hover: #B3A14B;
+
+	/* Emphasis — only b/strong/.cm-strong and i/em/.cm-em read these */
 	--bold-color: #B5C7C7;
 	--italic-color: #B8CECE;
 
-	--interactive-accent: #92a1a1;
-	--text-highlight-bg: #FFFF0033;
+	/* Highlight */
+	--text-highlight-bg: #FF03;
 }
 
 .theme-light {
-	/*User-defined Variables*/
+	/* Feeds the --link-* variables below */
 	--my-link-color: #59A2C5;
 	--my-link-color-hover: #B3A14B;
 
-	/*Built-in Variables*/
+	/* Backgrounds */
 	--background-primary: #E0E2E5;
 	--background-primary-alt: #D6D9DC;
 	--background-secondary: #F0F1F2;
-	--background-secondary-alt: #FFFFFF;
+	--background-secondary-alt: #FFF;
 	--background-modifier-border: #92A1A17A;
 
+	/* Text */
 	--text-normal: #2F3136;
-	--text-faint: #5F615E;
+	--text-faint: #5E5F5D;
 	--text-accent: #FF9640BA;
 	--text-accent-hover: #B3A14B;
+
+	/* Emphasis */
 	--bold-color: #4A4C4F;
 	--italic-color: #474A4D;
 
-	--interactive-accent: #92a1a1;
-	--text-highlight-bg: #00000033;
+	/* Highlight */
+	--text-highlight-bg: #0003;
 }
 
 body {
-	--blockquote-border-color: #4D3CA699;
-	--code-tag: var(--text-accent) !important;
+	/* HSL triplet, not --interactive-accent: Obsidian derives the hover tint, selection and nav highlight from it */
+	--accent-h: 181;
+	--accent-s: 7.3%;
+	--accent-l: 56%;
 
+	/* Blockquotes */
+	--blockquote-border-color: #4D3CA699;
+
+	/* HTML tags, constants and symbols in code; inline code uses --code-normal */
+	--code-tag: var(--text-accent);
+
+	/* Headings */
 	--h1-color: #BA6EA0;
 	--h2-color: #B78B60;
 	--h3-color: #A79645;
@@ -56,24 +72,22 @@ body {
 	--h5-color: #59A2C5;
 	--h6-color: #939BD6;
 
+	/* Links */
 	--link-color: var(--my-link-color);
 	--link-color-hover: var(--my-link-color-hover);
-	--link-decoration: none !important;
-	--link-decoration-hover: none !important;
+	--link-decoration: none;
+	--link-decoration-hover: none;
 	--link-external-color: var(--my-link-color);
 	--link-external-color-hover: var(--my-link-color-hover);
-	--link-external-decoration: none !important;
-	--link-external-decoration-hover: none !important;
+	--link-external-decoration: none;
+	--link-external-decoration-hover: none;
+
+	/* Live Preview tables carry .markdown-rendered too, so these cover both modes without leaking into settings tables */
+	--table-header-background: var(--background-primary);
+	--table-row-alt-background: var(--background-primary-alt);
 }
 
+/* --table-header-border-width styles the *top* border of header cells, so an underline needs a rule; unscoped to also reach .cm-html-embed and PDF export */
 thead {
-	border-bottom: 4px solid var(--background-modifier-border);
-}
-
-th {
-	background-color: var(--background-primary) !important;
-}
-
-tr:nth-child(odd) {
-	background-color: var(--background-primary-alt) !important;
+	border-bottom: 4px solid var(--table-border-color);
 }
